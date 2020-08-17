@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: server-cluster-ip-service
+spec:
+  type: ClusterIP
+  selector:
+    component: server # matching pod meta
+  ports:
+    - port: 5000 # port of cluster ip
+      targetPort: 5000 # port of Pod to redirect to, should match with containerPort
