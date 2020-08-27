@@ -10,3 +10,8 @@ before_install:
   - gcloud config set project crested-medium-286703
   - gcloud config set compute/zone asia-east1-a
   - gcloud container clusters get-credentials web-k8s
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker build -t hkityan/client-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true hkityan/client-test npm test
