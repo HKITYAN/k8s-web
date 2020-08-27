@@ -8,5 +8,5 @@ before_install:
   - gcloud components update kubectl
   - gcloud auth activate-service-account --key-file service-account.json
   - gcloud config set project crested-medium-286703
-  - gcloud config set compute/zone xxx
-  - gcloud container clusters get-credentials xxxx
+  - gcloud config set compute/zone asia-east1-a
+  - gcloud container clusters get-credentials web-k8s
